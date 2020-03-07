@@ -1,0 +1,73 @@
+<nav class="navbar position-fixed">
+    <div class="row">
+        <div class="col-sm-5">
+            <a href="#" class="navbar-brand">USA TODAY SCRAPE</a>
+        </div>
+        <div class="col-sm-7">
+            <ul class="navbar-nav flex-row">
+                <li class="nav-item navi">
+                    <a href="/" class="nav-link">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item navi">
+                    <a href="/saved" class="nav-link">
+                        Saved Articles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-primary btn-scraper">
+                        SCRAPE ARTICLES!
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container content">
+    <div class="row-card row">
+        
+    </div>
+
+    {{!-- Scrape Modal --}}
+    <div class="modal fade" id="scrapeModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modal-message">
+            Scrape Complete!
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn scrapeCloseBtn" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Article Modal --}}
+<div class="modal fade" id="saveArticleModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modal-message">
+            Article Saved!
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn saveArticleCloseBtn" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div class="jumbotron">
+        <h1>Looks like theirs no articles to display...</h1>
+    </div>
+</div>

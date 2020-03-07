@@ -1,0 +1,109 @@
+<nav class="navbar position-fixed">
+    <div class="row">
+        <div class="col-sm-6">
+            <a href="#" class="navbar-brand">USA TODAY SCRAPE</a>
+        </div>
+        <div class="col-sm-6">
+            <ul class="navbar-nav flex-row">
+                <li class="nav-item navi">
+                    <a href="/" class="nav-link">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item navi">
+                    <a href="/saved" class="nav-link">
+                        Saved Articles
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container content">
+    {{#each articles}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" onclick="window.open('{{this.link}}', '_blank')">{{this.heading}}</h5>
+            <p class="card-text" onclick="window.open('{{this.link}}', '_blank')">{{this.info}}</p>
+            <button data-id="{{_id}}" id="comment-btn" class="btn btn-primary comment-btn">Comment</button>
+            <button id="delete-btn" data-id="{{_id}}" class="btn btn-primary card-delete-btn">Delete Article</button>
+        </div>
+    </div>
+    <br>
+    {{/each}}
+</div>
+
+</div>
+<!-- Notes Modal -->
+<div class="modal fade" id="commentsModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="close notesCloseBtn" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <input type="text" class="form-control title" name="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control body" rows="3" placeholder="Note Text"></textarea>
+                </div>
+                <button class="btn btn-success saveNoteBtn">Save Note</button>
+                <hr>
+                <div class="comments">
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn notesCloseBtn" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Saved Note Modal --}}
+<div class="modal fade" id="saveNoteModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modal-message">
+            Note Saved!
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn saveArticleCloseBtn" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{!-- Deleted Note Modal --}}
+<div class="modal fade" id="deleteNoteModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modal-message">
+            Note Delted!
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn saveArticleCloseBtn" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+/* general */
+ul {
+    list-style-type: none;
+}
+
+/* container */
+.content {
+    padding-top: 150px;
+}
+
+/* navbar */
+
+nav {
+    background: rgb(0, 0, 0);
+    box-shadow: 5px 5px 5px 5px lightgrey;
+    z-index: 999;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.nav-item {
+    padding: 1rem;
+}
+
+.nav-link,
+.btn-scraper {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav-link:link,
+.btn-scraper {
+    text-decoration: none;
+}
+
+.nav-link:visited,
+.btn-scraper {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.btn-scraper {
+    color: bisque;
+    text-decoration: none;
+}
+
+a.navbar-brand {
+    background-color: rgb(35, 24, 134);
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    padding: 1rem;
+}
+
+.navbar-brand:visited {
+    color: #ffffff;
+}
+
+.navbar-brand:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+.navbar-brand:active {
+    color: #ffffff;
+}
+
+/* card */
+.card-title {
+    background-color: rgb(35, 24, 134);
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    padding: 4rem;
+}
+
+.card-body {
+    padding: 0px !important;
+}
+
+.card {
+    box-shadow: 10px 10px 5px 5px lightgray;
+    padding: 0px !important;
+    margin: 1rem;
+}
+
+.card-text {
+    font-size: 15px;
+}
+
+.card-text {
+    padding: 1rem;
+}
+
+.save-btn,
+.comment-btn,
+.card-delete-btn {
+    margin: 0px 0px 20px 20px;
+}
+.card-title:hover,
+.card-text:hover {
+    cursor: pointer;
+}
+
+/* modals */
+#notesModal {
+    z-index: 9999;
+}
+
+.delete-btn {
+    margin: 1rem 0px 1rem 0px
+}
