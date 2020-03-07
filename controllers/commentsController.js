@@ -1,5 +1,6 @@
 const db = require('../models');
 
+
 module.exports = {
 	findComment: (articleId) => {
 		return db.Articles.findOne({ _id: articleId })
