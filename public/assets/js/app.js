@@ -1,4 +1,6 @@
 $(document).ready(() => {
+    var currentId = "";
+
     $('.row-card').on('click', "h5.card-title", function () {
         console.log($(this).data('link'));
         let link = $(this).data('link');
@@ -73,11 +75,11 @@ $(document).ready(() => {
 
     $('.card-delete-btn').on('click', function () {
         event.preventDefault();
-        var id = $(this).data('id');
+        var currentId = $(this).data('id');
         location.reload();
 
         $.ajax({
-            url: "/delete-article/" + id,
+            url: "/delete-article/" + currentId,
             type: "DELETE"
         })
     })
@@ -85,12 +87,11 @@ $(document).ready(() => {
     $('.comment-btn').on('click', function () {
         event.preventDefault();
         $('.comments').empty();
-        var id = $(this).data('id');
-        console.log(id);
+        currentId = $(this).data('id');
 
         $.ajax({
             method: "GET",
-            url: "/comments/" + id,
+            url: "/comments/" + currentId,
             success: () => {
                 $('#commentsModal').modal('show');
             }
@@ -103,6 +104,7 @@ $(document).ready(() => {
                 var notesBtn = $('<button>');
                 notesBtn.text('Delete');
                 notesBtn.addClass('btn btn-primary delete-btn');
+                notesBtn.attr('data-id', data.comments[i]._id)
                 notesText.addClass('form-control')
                 notesText.attr('type', 'text');
                 notesText.attr('rows', '3');
@@ -119,34 +121,37 @@ $(document).ready(() => {
 
         })
 
-        $('.saveNoteBtn').on('click', function () {
-            event.preventDefault();
-            const articleNotes = {};
+    });
 
-            articleNotes.title = $('.title').val().trim();
-            articleNotes.body = $('.body').val().trim();
+    $('.saveNoteBtn').on('click', function () {
+        event.preventDefault();
+        console.log('hey', currentId);
+        const articleNotes = {};
 
-            if (articleNotes.title && articleNotes.body) {
-                $.ajax({
-                    method: "POST",
-                    url: "/comments/" + id,
-                    data: articleNotes
-                })
-                $('.title').val('');
-                $('.body').val('');
-                $('#commentsModal').modal('hide');
-                $('#saveNoteModal').modal('show');
-            }
-        });
+        articleNotes.title = $('.title').val().trim();
+        articleNotes.body = $('.body').val().trim();
 
-        $('.comments').on('click', "button.delete-btn", function () {
-            console.log(id);
-            location.reload();
+        if (articleNotes.title && articleNotes.body) {
             $.ajax({
-                method: "DELETE",
-                url: "/comments/" + id
-            });
-        });
+                method: "POST",
+                url: "/comments/" + currentId,
+                data: articleNotes
+            })
+            $('.title').val('');
+            $('.body').val('');
+            $('#commentsModal').modal('hide');
+            $('#saveNoteModal').modal('show');
+        }
+    });
+
+    $('.comments').on('click', "button.delete-btn", function () {
+        let id = $(this).data('id');
+        $.ajax({
+            method: "DELETE",
+            url: "/comments/" + id
+        }).then(()=> {
+            location.reload();
+        })
     });
 
 });

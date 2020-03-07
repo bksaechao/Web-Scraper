@@ -27,7 +27,7 @@ module.exports = {
 	},
 
 	deleteComment: (articleId) => {
-		db.Comments.deleteOne({ _id: articleId });
+		return db.Comments.deleteOne({ _id: articleId });
 	}
 }
 

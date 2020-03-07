@@ -55,7 +55,10 @@ app.get('/comments/:articleId', (req, res) => {
 })
 
 app.delete('/comments/:articleId', (req, res) => {
-    commentsController.deleteComment(req.params.articleId);
+    commentsController.deleteComment(req.params.articleId)
+    .then((commentData) => {
+        res.json(commentData);
+    });
 })
 
 
