@@ -21,7 +21,7 @@
   "homepage": "https://github.com/bksaechao/Web-Scraper#readme",
   "dependencies": {
     "ajax": "0.0.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
     "cheerio": "^1.0.0-rc.3",
