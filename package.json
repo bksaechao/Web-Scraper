@@ -33,6 +33,6 @@
     "webpack": "^4.41.6"
   },
   "devDependencies": {
-    "handlebars": "^4.7.3"
+    "handlebars": "^4.7.7"
   }
 }
